@@ -11,14 +11,16 @@
 			<p class="byline">{{ item.author }} | {{ item.timestamp }}</p>
 		</div>
 
-		<div class="grid-row grid-center">
-			<button class="todo-btn up-icon" @click.stop="moveUp">
-				<i class="fas fa-chevron-up"></i>
-			</button>
+		<div class="grid-row grid-center gap-sm">
+			<div class="up-down grid-col grid-center">
+				<button class="todo-btn up-icon" @click.stop="moveUp">
+					<i class="fas fa-chevron-up"></i>
+				</button>
 
-			<button class="todo-btn down-icon" @click.stop="moveDown">
-				<i class="fas fa-chevron-down"></i>
-			</button>
+				<button class="todo-btn down-icon" @click.stop="moveDown">
+					<i class="fas fa-chevron-down"></i>
+				</button>
+			</div>
 
 			<button class="todo-btn delete-icon" @click.stop="deleteItem">
 				<i class="fas fa-times"></i>
@@ -56,11 +58,11 @@ export default {
 
 <style scoped>
 .todo-item {
-	padding: var(--gap-sm) var(--gap-lg);
+	padding: var(--gap-sm) var(--gap-sm);
 	border-radius: var(--border-radius);
 
 	grid-template-columns: auto 1fr auto;
-	gap: var(--gap-lg);
+	gap: var(--gap-sm);
 }
 .todo-item:hover,
 .todo-item:focus-within {
@@ -82,6 +84,10 @@ export default {
 }
 .todo-item.done .byline {
 	opacity: 25%;
+}
+
+.up-down {
+	gap: 0;
 }
 
 .todo-btn {
@@ -109,5 +115,16 @@ export default {
 .todo-item:first-child .up-icon,
 .todo-item:last-child .down-icon {
 	display: none;
+}
+
+.todo-btn i::before {
+	line-height: 1.5rem;
+}
+
+@media screen and (min-width: 576px) {
+	.todo-item {
+		padding: var(--gap-sm) var(--gap-lg);
+		gap: var(--gap-lg);
+	}
 }
 </style>

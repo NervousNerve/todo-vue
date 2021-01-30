@@ -59,13 +59,11 @@ body {
 
 .grid-col {
 	display: grid;
-	gap: var(--gap-sm);
 	grid-auto-flow: row;
 }
 
 .grid-row {
 	display: grid;
-	gap: var(--gap-sm);
 	grid-auto-flow: column;
 }
 
@@ -77,6 +75,14 @@ body {
 
 .grid-spread {
 	justify-content: space-between;
+}
+
+.gap-sm {
+	gap: var(--gap-sm);
+}
+
+.gap-lg {
+	gap: var(--gap-lg);
 }
 
 button {

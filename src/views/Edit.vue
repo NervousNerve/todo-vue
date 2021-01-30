@@ -1,5 +1,5 @@
 <template>
-	<form class="view container grid-col" @submit.prevent="submitForm">
+	<form class="view container grid-col gap-sm" @submit.prevent="submitForm">
 		<h1 v-if="id === undefined">New</h1>
 		<h1 v-else>Edit</h1>
 

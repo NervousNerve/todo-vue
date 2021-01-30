@@ -1,5 +1,5 @@
 <template>
-	<div class="view container grid-col">
+	<div class="view container grid-col gap-sm">
 		<button class="btn grid-center" @click="$router.push('edit')">
 			<i class="fas fa-plus"></i>
 			<span>Add new todo</span>
