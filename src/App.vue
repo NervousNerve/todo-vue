@@ -13,7 +13,7 @@ export default {
 		NavBar,
 	},
 	created() {
-		this.$store.commit("fetchData");
+		this.$store.dispatch("fetchData");
 	},
 };
 </script>

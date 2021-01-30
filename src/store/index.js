@@ -48,11 +48,9 @@ export default new Vuex.Store({
 		],
 	},
 	mutations: {
-		// Read data from local storage and update state
-		fetchData(state) {
-			let localData = localStorage.getItem("todoList");
-			if (!localData) return;
-			state.items = JSON.parse(localData);
+		// Replace items with new data
+		setData(state, data) {
+			state.items = data;
 		},
 		// Move item up in the list
 		moveUp(state, id) {
@@ -128,6 +126,12 @@ export default new Vuex.Store({
 		},
 	},
 	actions: {
+		// Read data from local storage if there is any, and update state
+		fetchData() {
+			let localData = localStorage.getItem("todoList");
+			if (!localData) return;
+			this.commit("setData", JSON.parse(localData));
+		},
 		// Write current state to local storage
 		saveData(context) {
 			localStorage.setItem("todoList", JSON.stringify(context.state.items));
