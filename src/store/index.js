@@ -19,14 +19,14 @@ export default new Vuex.Store({
 		items: [
 			{
 				id: 0,
-				content: "Learn all the programming languages in the world",
-				author: "Author Authorsson",
-				timestamp: "2021-01-27 16:02",
+				content: "Learn to code like a boss",
+				author: "Young Padawan",
+				timestamp: "2021-01-30 13:26",
 				done: false,
 			},
 			{
 				id: 1,
-				content: "Pilot a rocket ship to the mooooon!",
+				content: "Pilot a rocketship to the mooooon!",
 				author: "Buzz Lightyear",
 				timestamp: "2021-01-29 08:35",
 				done: false,
