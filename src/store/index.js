@@ -61,7 +61,9 @@ export default new Vuex.Store({
 			} else if (index < 0) {
 				throw new Error("Error: Invalid id:", id);
 			}
+
 			const item = state.items.splice(index, 1)[0];
+
 			state.items.splice(index - 1, 0, item);
 			this.dispatch("saveData");
 		},
@@ -74,7 +76,9 @@ export default new Vuex.Store({
 			} else if (index < 0) {
 				throw new Error("Error: Invalid id:", id);
 			}
+
 			const item = state.items.splice(index, 1)[0];
+
 			state.items.splice(index + 1, 0, item);
 			this.dispatch("saveData");
 		},
@@ -84,6 +88,7 @@ export default new Vuex.Store({
 			if (index < 0) {
 				throw new Error("Error: Invalid id:", id);
 			}
+
 			state.items.splice(index, 1);
 			this.dispatch("saveData");
 		},
@@ -92,6 +97,7 @@ export default new Vuex.Store({
 			item.id = state.items.reduce((acc, val) => acc > val.id ? acc : val.id, 0) + 1;
 			item.timestamp = formatTime(Date.now());
 			item.done = false;
+
 			state.items.unshift(item);
 			this.dispatch("saveData");
 		},
@@ -103,8 +109,10 @@ export default new Vuex.Store({
 			if (index < 0) {
 				throw new Error("Error: Invalid id:", item.id);
 			}
+
 			item.timestamp = formatTime(Date.now());
 			item.done = state.items[index].done;
+
 			state.items.splice(index, 1, item);
 			this.dispatch("saveData");
 		},
@@ -115,7 +123,9 @@ export default new Vuex.Store({
 			if (index < 0) {
 				throw new Error("Error: Invalid id:", id);
 			}
+
 			let isDone = !state.items[index].done;
+
 			Vue.set(state.items[index], "done", isDone);
 			if (isDone) {
 				// Move to bottom of list
@@ -130,6 +140,7 @@ export default new Vuex.Store({
 		fetchData() {
 			let localData = localStorage.getItem("todoList");
 			if (!localData) return;
+
 			this.commit("setData", JSON.parse(localData));
 		},
 		// Write current state to local storage

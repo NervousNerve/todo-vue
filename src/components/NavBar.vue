@@ -2,6 +2,7 @@
 	<div class="navbar">
 		<nav class="container">
 			<router-link to="/" class="logo">./todo-vue</router-link>
+			
 			<router-link to="/about" class="nav-button">
 				<i class="far fa-question-circle"></i>
 			</router-link>

@@ -2,6 +2,7 @@
 	<form class="view container grid-col" @submit.prevent="submitForm">
 		<h1 v-if="id === undefined">New</h1>
 		<h1 v-else>Edit</h1>
+
 		<div>
 			<label for="content">Content</label>
 			<textarea v-model="content" id="content" cols="30" rows="2" @input="inputChanged"></textarea>
@@ -43,6 +44,7 @@ export default {
 	},
 	created() {
 		if (this.id === undefined) return;
+
 		const item = this.$store.state.items.find(val => val.id === this.id);
 		this.content = item.content;
 		this.author = item.author;
@@ -55,19 +57,20 @@ export default {
 		submitForm() {
 			if (this.content === "") this.contentErr = true;
 			if (this.author === "") this.authorErr = true;
-			if (this.contentErr || this.authorErr)
-				return;
+			if (this.contentErr || this.authorErr) return;
 
 			const item = {
 				content: this.content,
 				author: this.author,
 			};
+
 			if (this.id === undefined) {
 				this.$store.commit("addItem", item);
 			} else {
 				item.id = this.id;
 				this.$store.commit("updateItem", item);
 			}
+
 			this.$router.push('/');
 		},
 	},
@@ -120,11 +123,8 @@ textarea {
 	padding: .2em var(--gap-sm);
 	font-size: .8rem;
 	line-height: .8rem;
-	/* color: brown; */
 	background: brown;
-	/* background: linear-gradient(#a52a2a80, #a52a2a); */
 	border-bottom-left-radius: var(--border-radius);
 	border-bottom-right-radius: var(--border-radius);
-	/* border-radius: var(--border-radius); */
 }
 </style>

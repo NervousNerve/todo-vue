@@ -5,17 +5,21 @@
 				<i class="far" :class="{ 'fa-check-square': item.done, 'fa-square': !item.done }"></i>
 			</button>
 		</div>
+
 		<div>
 			<p class="content">{{ item.content }}</p>
 			<p class="byline">{{ item.author }} | {{ item.timestamp }}</p>
 		</div>
+
 		<div class="grid-row grid-center">
 			<button class="todo-btn up-icon" @click.stop="moveUp">
 				<i class="fas fa-chevron-up"></i>
 			</button>
+
 			<button class="todo-btn down-icon" @click.stop="moveDown">
 				<i class="fas fa-chevron-down"></i>
 			</button>
+
 			<button class="todo-btn delete-icon" @click.stop="deleteItem">
 				<i class="fas fa-times"></i>
 			</button>
