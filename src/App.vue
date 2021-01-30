@@ -31,7 +31,7 @@ export default {
 	--hover-bg-color: #fff1;
 
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: clamp(1rem, 1.75vw, 2rem);
+	font-size: clamp(1rem, 1.5vw, 2rem);
 	color: white;
 }
 
